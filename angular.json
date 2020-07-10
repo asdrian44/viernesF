@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "InfV"
+    }
+  },
+  "defaultProject": "InfV",
+  "cli": {
+    "analytics": "608864df-8d1f-4a6a-8c5f-376edda6d054"
+  }
 }
