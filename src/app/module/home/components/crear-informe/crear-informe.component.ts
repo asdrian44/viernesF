@@ -23,7 +23,7 @@ export class CrearInformeComponent implements OnInit {
   form = this.formBuilder.group({
     rubro:[''],
     tareas: this.formBuilder.array([]),
-    add:['']
+    adds:['']
 
   });
   inicio;
@@ -65,7 +65,7 @@ export class CrearInformeComponent implements OnInit {
     const reporte:ReportModel={
         actividad:datos,
         rubro:this.form.controls.rubro.value,
-        add:this.form.controls.add.value
+        add:this.form.controls.adds.value
 
     };
     this.axis.enviarReporte(reporte).subscribe(value => {
