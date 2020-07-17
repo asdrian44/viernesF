@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {AuthModel} from '../../../../shared/models/authModel';
 import {AuthService} from '../../../../core/services/auth.service';
 import '../../../../../assets/js/searchListadoActividades';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-registrar-empleado',
   templateUrl: './registrar-empleado.component.html',
@@ -12,7 +13,7 @@ export class RegistrarEmpleadoComponent implements OnInit {
   rol;
   sex;
   form:FormGroup;
-  constructor(private builder:FormBuilder,private axis:AuthService) {
+  constructor(private builder:FormBuilder,private axis:AuthService,private router:Router) {
 
     this.form=this.builder.group({
     email:[''],
@@ -51,7 +52,8 @@ photo:['']
 
     console.log(registrar);
     this.axis.registrar(registrar).subscribe(value => {
-      alert(value);
+      alert("Registro exitoso");
+    this.router.navigate(['/inicio']);
     },error => {
       console.log(error);
     })
@@ -63,6 +65,7 @@ photo:['']
     reader.readAsDataURL(file);
     reader.onload = () => {
       this.photo=reader.result;
+      alert("foto subida con exito");
     };
   }
 
