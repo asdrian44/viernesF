@@ -7,6 +7,7 @@ import {IndexComponent} from './module/home/page/home/index.component';
 import {HomeModule} from './module/home/home.module';
 import {CoreModule} from './core/core.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {ReactiveFormsModule} from '@angular/forms';
   ],
   imports: [
     BrowserModule, CoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
 

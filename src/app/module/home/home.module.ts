@@ -4,12 +4,21 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {IndexComponent} from './page/home/index.component';
 import {AuthService} from '../../core/services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
+import { InformesComponent } from './components/informes/informes.component';
+import { CrearInformeComponent } from './components/crear-informe/crear-informe.component';
+import { ListaInformesComponent } from './components/lista-informes/lista-informes.component';
+import {RouterModule} from '@angular/router';
+import {NgbDatepickerModule} from '@ng-bootstrap/ng-bootstrap';
+import { PaginaErrorComponent } from './components/pagina-error/pagina-error.component';
+import { RegistrarEmpleadoComponent } from './components/registrar-empleado/registrar-empleado.component';
+
+
 
 
 @NgModule({
-  declarations: [IndexComponent],
+  declarations: [IndexComponent, InformesComponent, CrearInformeComponent, ListaInformesComponent, PaginaErrorComponent, RegistrarEmpleadoComponent],
   imports: [
-    CommonModule, ReactiveFormsModule,FormsModule,HttpClientModule
+    CommonModule, ReactiveFormsModule, FormsModule, HttpClientModule, RouterModule, NgbDatepickerModule
   ],
   exports: [IndexComponent],
   providers: [AuthService]

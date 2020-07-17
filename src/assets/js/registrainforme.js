@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#datepicker').datepicker({
-        format: "dd/mm/yyyy",
+      format: "yyyy-mm-dd",
         maxViewMode: 1,
         todayBtn: "linked",
         language: "es",
@@ -8,6 +8,7 @@ $(document).ready(function() {
     });
 
     $(document).ready(function() {
+      log
         $("#add_row").on("click", function() {
             // Dynamic Rows Code
 

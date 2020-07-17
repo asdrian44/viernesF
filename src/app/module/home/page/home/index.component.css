@@ -1,12 +1,4 @@
-.container {
 
-
-
-
-
-
-
-}
 .body{
   font-family: "Montserrat", sans-serif;
   background-repeat: no-repeat;
@@ -278,7 +270,7 @@ footer p a:focus:hover {
 
 @media (max-width: 768px) {
   .container {
-    overflow: hidden;
+
   }
   section#formHolder {
     padding: 0;
