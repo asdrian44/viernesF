@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../../../core/services/auth.service';
 
 @Component({
   selector: 'app-previsualizar',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrevisualizarComponent implements OnInit {
 
-  constructor() { }
+  tareas;
+  constructor(private axis:AuthService) {
+
+
+  }
 
   ngOnInit(): void {
+    const numeros=localStorage.getItem('idreport');
+    const numero:{numero:number}={
+      numero:Number(numeros)
+    }
+    this.axis.getReporte(numero).subscribe(value => {
+      console.log(value);
+      this.tareas=value;
+    },error => {
+      console.log(error);
+    })
   }
+
+
 
 }

@@ -44,7 +44,7 @@
           <div class="card h-70">
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Informe {{i+1}}</a>
+                <a href="inicio/mostrar" (click)="setReport(item.actividades[0].idReport)">Informe {{i+1}}</a>
               </h4>
               <h5>{{item.periodoInicio}} hasta {{item.periodoFin}}</h5>
               <div *ngFor="let item2 of item.actividades">

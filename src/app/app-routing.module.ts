@@ -7,6 +7,7 @@ import {CrearInformeComponent} from './module/home/components/crear-informe/crea
 import {ListaInformesComponent} from './module/home/components/lista-informes/lista-informes.component';
 import {PaginaErrorComponent} from './module/home/components/pagina-error/pagina-error.component';
 import {RegistrarEmpleadoComponent} from './module/home/components/registrar-empleado/registrar-empleado.component';
+import {PrevisualizarComponent} from './module/home/components/previsualizar/previsualizar.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,9 @@ const routes: Routes = [
       },
       {
         path:'empleados',component:RegistrarEmpleadoComponent
+      },
+      {
+        path:'mostrar',component:PrevisualizarComponent
       }
 
 
@@ -29,6 +33,7 @@ const routes: Routes = [
       }
     ]
   },
+
   {
     path: '**', component: PaginaErrorComponent
   }

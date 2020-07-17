@@ -55,4 +55,10 @@ export class AuthService {
 
 
   }
+  getReporte(numero:{numero:number}):Observable<any>{
+
+    this.header=this.header.set("Authorization", localStorage.getItem('token'));
+    return  this.http.post(this.url+'api/rop',numero,{headers:this.header});
+
+  }
 }

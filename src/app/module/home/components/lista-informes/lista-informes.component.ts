@@ -34,4 +34,8 @@ cambio(a){
   console.log(this.picker);
   return this.picker;
 }
+
+setReport(id){
+    localStorage.setItem('idreport',id);
+}
 }
