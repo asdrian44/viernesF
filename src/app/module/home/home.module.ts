@@ -11,12 +11,13 @@ import {RouterModule} from '@angular/router';
 import {NgbDatepickerModule} from '@ng-bootstrap/ng-bootstrap';
 import { PaginaErrorComponent } from './components/pagina-error/pagina-error.component';
 import { RegistrarEmpleadoComponent } from './components/registrar-empleado/registrar-empleado.component';
+import { PrevisualizarComponent } from './components/previsualizar/previsualizar.component';
 
 
 
 
 @NgModule({
-  declarations: [IndexComponent, InformesComponent, CrearInformeComponent, ListaInformesComponent, PaginaErrorComponent, RegistrarEmpleadoComponent],
+  declarations: [IndexComponent, InformesComponent, CrearInformeComponent, ListaInformesComponent, PaginaErrorComponent, RegistrarEmpleadoComponent, PrevisualizarComponent],
   imports: [
     CommonModule, ReactiveFormsModule, FormsModule, HttpClientModule, RouterModule, NgbDatepickerModule
   ],
