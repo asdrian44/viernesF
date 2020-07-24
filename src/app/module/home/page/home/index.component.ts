@@ -20,6 +20,7 @@ export class IndexComponent implements OnInit {
 
   constructor(private builder: FormBuilder, private builder2: FormBuilder, private servicio: AuthService,
               private router:Router) {
+
     this.form = this.builder.group({
       loginemail: ['', Validators.required, Validators.min(10), Validators.pattern('(([^<>()[\\]\\\\.,;:\\s@\\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\\"]+)*)|(\\".+\\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$')],
       loginPassword: ['', Validators.required, , Validators.min(10)]
@@ -40,6 +41,10 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+
+
+
     if(localStorage.getItem("token")){
       this.router.navigate(['/inicio']);
     }

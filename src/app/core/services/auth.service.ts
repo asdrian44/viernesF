@@ -12,7 +12,7 @@ import {ReportModel} from '../../shared/models/reportModel';
 })
 export class AuthService {
 
-  url = 'https://eea81c271781.ngrok.io/';
+  url = 'https://b69ab99d1c99.ngrok.io/';
 
   constructor(private http: HttpClient) {
   }

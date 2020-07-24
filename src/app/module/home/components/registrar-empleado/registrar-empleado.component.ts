@@ -29,7 +29,13 @@ photo:['']
 
 
   ngOnInit(): void {
+    const rol=String(localStorage.getItem("rol"));
+    const rol2=Number(rol);
 
+
+    if(rol2==1){
+      this.router.navigate(['/inicio'])
+    }
   }
 
   role(a){

@@ -16,7 +16,7 @@
         </li>
         <li class="nav-item">
 
-          <a class="nav-link" (click)="crearInforme()" href="/inicio/registrar">Crear Informe</a>
+          <a class="nav-link" (click)="crearInforme()" *ngIf="estados==false">Crear Informe</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" (click)="cerrarSession()">Cerrar Sesión</a>

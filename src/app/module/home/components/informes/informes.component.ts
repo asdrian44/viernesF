@@ -8,18 +8,34 @@ import {Router} from '@angular/router';
 })
 export class InformesComponent implements OnInit {
 
+  estados=false;
   constructor(private router:Router) { }
 
   ngOnInit(): void {
+
+    const rol=String(localStorage.getItem("rol"));
+    const rol2=Number(rol);
+
+
+    if(rol2==1){
+    this.estados=true;
+    }
+
   }
 
    cerrarSession() {
     localStorage.removeItem("token");
+    window.location.reload();
+
      this.router.navigate(['/login']);
+
   }
 
    crearInforme() {
-     //this.router.navigate(['/informes/registrar'])
+
+
+
+     this.router.navigate(['/inicio/registrar'])
   }
 
   inicio() {
