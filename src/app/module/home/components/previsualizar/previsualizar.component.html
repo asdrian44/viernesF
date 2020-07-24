@@ -41,8 +41,9 @@
 
       <textarea rows="1" id="comments" disabled>{{tareas.report.addComent}}</textarea>
 
-    <button>Rechazar</button>
-      <button>Aceptar</button>
+    <button  *ngIf="estado==false" (click)="aceptar()">{{ap}}</button>
+      <button  *ngIf="estado==false" (click)="rechazado()">Rechazar</button>
+
     </div>
 
   </div>

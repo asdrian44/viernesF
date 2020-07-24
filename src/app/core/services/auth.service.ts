@@ -61,4 +61,12 @@ export class AuthService {
     return  this.http.post(this.url+'api/rop',numero,{headers:this.header});
 
   }
+
+  estadosreportes(numero){
+
+    this.header=this.header.set("Authorization", localStorage.getItem('token'));
+    return  this.http.post(this.url+'api/status',numero,{headers:this.header});
+
+  }
+
 }
