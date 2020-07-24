@@ -22,7 +22,7 @@
           <a class="nav-link" (click)="cerrarSession()">Cerrar Sesión</a>
         </li>
         <li class="nav-item" *ngIf="estado()">
-          <a class="nav-link"  href="/inicio/empleados">Registrar Empleado</a>
+          <a class="nav-link"  href="/inicio/empleados" *ngIf="emp==false">Registrar Empleado</a>
         </li>
 
       </ul>

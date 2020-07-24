@@ -53,7 +53,7 @@ export class IndexComponent implements OnInit {
    logear() {
 
 
-
+     console.log("entro");
     const log: LoginModel = {email: this.form.controls.loginemail.value, password: this.form.controls.loginPassword.value};
     this.servicio.login(log).subscribe(value => {
 

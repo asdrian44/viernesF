@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 export class InformesComponent implements OnInit {
 
   estados=false;
+  emp=false;
   constructor(private router:Router) { }
 
   ngOnInit(): void {
@@ -19,6 +20,7 @@ export class InformesComponent implements OnInit {
 
     if(rol2==1){
     this.estados=true;
+    this.emp=true;
     }
 
   }
