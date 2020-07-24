@@ -20,7 +20,9 @@ export class InformesComponent implements OnInit {
 
     if(rol2==1){
     this.estados=true;
-    this.emp=true;
+    this.emp=false;
+    }else{
+      this.emp=true;
     }
 
   }
