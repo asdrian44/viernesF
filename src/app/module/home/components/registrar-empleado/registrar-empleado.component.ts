@@ -71,7 +71,7 @@ photo:['']
     reader.readAsDataURL(file);
     reader.onload = () => {
       this.photo=reader.result;
-      alert("foto subida con exito");
+
     };
   }
 

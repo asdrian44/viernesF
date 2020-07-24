@@ -48,14 +48,19 @@
               <div class="name">Subir foto</div>
               <div class="value">
                 <div class="input-group js-input-file">
-                  <input  class="input-file" type="file" name="fotoFile" id="file" formControlName="photo" (change)="upload($event)">
-                  <label   class="label--file" for="file">Escoger imagen</label>
+
+
+
+                  <mat-form-field>
+                    <ngx-mat-file-input formControlName="photo" placeholder="Escoger Imagen" (change)="upload($event)" ></ngx-mat-file-input>
+                    <mat-icon matSuffix>folder</mat-icon>
+                  </mat-form-field>
                 </div>
               </div>
             </div>
             <div class="form-row">
               <div class="name">Cargo</div>
-              <div class="col-sm-7 col-md-7">
+              <div npm uninstall="col-sm-7 col-md-7">
                 <div id="radioBtn" class="btn-group">
                   <a class="btn btn-sm active" data-toggle="cargo" data-title="trabajador"  (click)="role(2)">Trabajador</a>
                   <a class="btn btn-sm notActive" data-toggle="cargo" data-title="jefatura"  (click)="role(3)">Jefatura</a>
