@@ -28,5 +28,7 @@ export class PrevisualizarComponent implements OnInit {
   }
 
 
+  aceptar(){
 
+  }
 }

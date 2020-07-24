@@ -33,7 +33,7 @@ photo:['']
     const rol2=Number(rol);
 
 
-    if(rol2==1){
+    if(rol2==2 || rol2==3){
       this.router.navigate(['/inicio'])
     }
   }
