@@ -6,6 +6,7 @@ import {IndexComponent} from '../module/home/page/home/index.component';
 import {AuthService} from './services/auth/auth.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ReportService} from './services/report/report.service';
+import {StatusService} from './services/status/status.service';
 
 
 @NgModule({
@@ -13,7 +14,7 @@ import {ReportService} from './services/report/report.service';
   imports: [
     CommonModule,HomeModule
   ],
-  providers:[AuthService,ReportService],
+  providers:[AuthService,ReportService,StatusService],
   exports: []
 })
 export class CoreModule {
