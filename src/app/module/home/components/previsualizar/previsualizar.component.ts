@@ -33,9 +33,15 @@ export class PrevisualizarComponent implements OnInit {
       this.estado=false;
     }
     if(rol2==1){
-      this.ap="Aprobar";
+      this.ap="Archivar";
       this.estado=false;
     }
+
+
+
+
+
+
 
 
 
@@ -48,6 +54,7 @@ export class PrevisualizarComponent implements OnInit {
     this.axis.getReporte(numero).subscribe(value => {
       console.log(value);
       this.tareas=value;
+
       if((value.report.status==1 || value.report.status==5) && (rol2==3 || rol2==1)){
         this.estado=false;
       }else{
