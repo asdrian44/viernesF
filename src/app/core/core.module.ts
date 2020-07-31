@@ -3,8 +3,9 @@ import {CommonModule} from '@angular/common';
 import {HomeModule} from '../module/home/home.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {IndexComponent} from '../module/home/page/home/index.component';
-import {AuthService} from './services/auth.service';
+import {AuthService} from './services/auth/auth.service';
 import {HttpClientModule} from '@angular/common/http';
+import {ReportService} from './services/report/report.service';
 
 
 @NgModule({
@@ -12,7 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     CommonModule,HomeModule
   ],
-  providers:[],
+  providers:[AuthService,ReportService],
   exports: []
 })
 export class CoreModule {

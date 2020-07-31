@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {IndexComponent} from './page/home/index.component';
-import {AuthService} from '../../core/services/auth.service';
+import {AuthService} from '../../core/services/auth/auth.service';
 import {HttpClientModule} from '@angular/common/http';
 import { InformesComponent } from './components/informes/informes.component';
 import { CrearInformeComponent } from './components/crear-informe/crear-informe.component';
@@ -26,7 +26,7 @@ import {MatFormFieldModule, MatIconModule} from '@angular/material';
     CommonModule, ReactiveFormsModule, FormsModule, HttpClientModule, RouterModule, NgbDatepickerModule, MatFormFieldModule, MatIconModule
   ],
   exports: [IndexComponent],
-  providers: [AuthService]
+  providers: []
 
 })
 export class HomeModule {

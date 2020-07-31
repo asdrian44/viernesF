@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import '../../../../../assets/js/searchListadoActividades';
-import {AuthService} from '../../../../core/services/auth.service';
+import {AuthService} from '../../../../core/services/auth/auth.service';
+import {ReportService} from '../../../../core/services/report/report.service';
 @Component({
   selector: 'app-lista-informes',
   templateUrl: './lista-informes.component.html',
@@ -10,7 +11,7 @@ export class ListaInformesComponent implements OnInit {
   datos;
   picker: number | string;
 
-  constructor(private axis:AuthService) { }
+  constructor(private axis:ReportService) { }
 
   ngOnInit(): void {
 

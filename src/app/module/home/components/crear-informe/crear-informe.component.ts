@@ -3,9 +3,11 @@ import '../../../../../assets/js/registrainforme';
 import {FormArray, FormBuilder} from '@angular/forms';
 import * as moment from'moment';
 import * as dateFormat from 'dateformat';
-import {AuthService} from '../../../../core/services/auth.service';
+import {AuthService} from '../../../../core/services/auth/auth.service';
 import {ReportModel} from '../../../../shared/models/reportModel';
 import {ActividadModel} from '../../../../shared/models/actividadModel';
+import {ReportService} from '../../../../core/services/report/report.service';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-crear-informe',
   templateUrl: './crear-informe.component.html',
@@ -14,14 +16,14 @@ import {ActividadModel} from '../../../../shared/models/actividadModel';
 
 export class CrearInformeComponent implements OnInit {
   nombre;
-
+  texto;
 
   tiempo;
-  constructor(private formBuilder: FormBuilder,private axis:AuthService) {
+  constructor(private formBuilder: FormBuilder,private axis:ReportService,private router:Router) {
   }
 
   form = this.formBuilder.group({
-    rubro:[''],
+    rubro:['Investigación'],
     tareas: this.formBuilder.array([]),
     adds:['']
 
@@ -46,6 +48,12 @@ export class CrearInformeComponent implements OnInit {
     this.inicio=fecha;
     this.fin=fecha2;
 
+    if(Number(localStorage.getItem('rol'))==3){
+      this.texto='Enviar  a RRHH';
+    }else{
+      this.texto='Enviar informe a Jefatura'
+    }
+
   }
 
   agregarTarea() {
@@ -69,7 +77,26 @@ export class CrearInformeComponent implements OnInit {
 
     };
     this.axis.enviarReporte(reporte).subscribe(value => {
-      alert("Accion completada");
+      alert(value.message);
+      this.router.navigate(['/inicio']);
+    },error => {
+      console.log(error);
+    })
+
+  }
+  enviar2(){
+
+    const datos:ActividadModel[]=this.form.value.tareas;
+
+    const reporte:ReportModel={
+      actividad:datos,
+      rubro:this.form.controls.rubro.value,
+      add:this.form.controls.adds.value
+
+    };
+    this.axis.enviarReporte(reporte).subscribe(value => {
+      alert('informe archivado');
+      this.router.navigate(['/inicio']);
     },error => {
       console.log(error);
     })

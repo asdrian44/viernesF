@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../../../../core/services/auth.service';
+import {AuthService} from '../../../../core/services/auth/auth.service';
+import {ReportService} from '../../../../core/services/report/report.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-previsualizar',
@@ -13,7 +15,7 @@ export class PrevisualizarComponent implements OnInit {
   estado=false;
 
   tareas;
-  constructor(private axis:AuthService) {
+  constructor(private axis:ReportService,private router:Router) {
 
 
   }
@@ -31,7 +33,7 @@ export class PrevisualizarComponent implements OnInit {
       this.estado=false;
     }
     if(rol2==1){
-      this.ap="Archivar";
+      this.ap="Aprobar";
       this.estado=false;
     }
 
@@ -46,6 +48,12 @@ export class PrevisualizarComponent implements OnInit {
     this.axis.getReporte(numero).subscribe(value => {
       console.log(value);
       this.tareas=value;
+      if((value.report.status==1 || value.report.status==5) && (rol2==3 || rol2==1)){
+        this.estado=false;
+      }else{
+        this.estado=true;
+      }
+
     },error => {
       console.log(error);
     })
@@ -54,24 +62,19 @@ export class PrevisualizarComponent implements OnInit {
 
   aceptar(){
 
-    const rol=String(localStorage.getItem("rol"));
-    const rol2=Number(rol);
+
 
     const n=String(localStorage.getItem("idreport"));
-    let statusd=0;
-    if(rol2==1){
-      statusd=4;
-    }
-    if(rol2==3){
-      statusd=3;
-    }
 
-    const id={numero:Number(n),statuss:statusd};
+
+
+    const id={numero:Number(n),statuss:true};
 
     this.axis.estadosreportes(id).subscribe(value => {
 
       console.log(value);
-      alert("Correcto");
+      alert("Informe aprobado");
+      this.router.navigate(['/inicio'])
     },error => {
       console.log(error);
     })
@@ -80,12 +83,13 @@ export class PrevisualizarComponent implements OnInit {
 
     const n=String(localStorage.getItem("idreport"));
 
-    const id={numero:Number(n),statuss:2};
+    const id={numero:Number(n),statuss:false};
 
     this.axis.estadosreportes(id).subscribe(value => {
 
       console.log(value);
       alert("informe rechazado");
+      this.router.navigate(['/inicio'])
     },error => {
       console.log(error);
     })

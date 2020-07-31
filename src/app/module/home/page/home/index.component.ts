@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import '../../../../../assets/js/js';
-import {AuthService} from '../../../../core/services/auth.service';
+import {AuthService} from '../../../../core/services/auth/auth.service';
 import {LoginModel} from '../../../../shared/models/loginModel';
 import {AuthModel} from '../../../../shared/models/authModel';
 import Swal from 'sweetalert2';
@@ -75,44 +75,7 @@ export class IndexComponent implements OnInit {
 
   }
 
-  registrar() {
 
-    const pw = this.form2.controls.password.value;
-    const pw2 = this.form2.controls.passwordCon.value;
-
-    if (pw == pw2) {
-      const registro: AuthModel = {
-        email: this.form2.controls.emailAdress.value,
-        password: this.form2.controls.password.value,
-        name: this.form2.controls.name.value,
-        lastName: this.form2.controls.last_name.value,
-
-      };
-
-      this.servicio.registrar(registro).subscribe(value => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Completado',
-          text: 'Registro Exitoso'
-        });
-        this.form2.reset();
-      }, error => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Ups',
-          text: error.error.message
-        });
-      });
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Ups',
-        text: 'Las contraseñas deben coincidir'
-      });
-
-    }
-    this.form2.reset();
-  }
 
 
 }
